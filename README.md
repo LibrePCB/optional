@@ -1,6 +1,8 @@
 # optional
+
 Single header implementation of `std::optional` with functional-style extensions and support for references.
 
+[![Documentation Status](https://readthedocs.org/projects/tl-docs/badge/?version=latest)](https://tl.tartanllama.xyz/en/latest/?badge=latest)
 Clang + GCC: [![Linux Build Status](https://travis-ci.org/TartanLlama/optional.png?branch=master)](https://travis-ci.org/TartanLlama/optional)
 MSVC: [![Windows Build Status](https://ci.appveyor.com/api/projects/status/k5x00xa11y3s5wsg?svg=true)](https://ci.appveyor.com/project/TartanLlama/optional)
 
@@ -40,8 +42,6 @@ tl::optional<image> get_cute_cat (const image& img) {
            .map(add_rainbow);
 }
 ```
-
-Full documentation available at [optional.tartanllama.xyz](https://optional.tartanllama.xyz)
 
 The interface is the same as `std::optional`, but the following member functions are also defined. Explicit types are for clarity.
 
