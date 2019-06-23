@@ -481,5 +481,6 @@ TEST_CASE("Monadic operations", "[monadic]") {
   SECTION("Issue #2") {
     tl::optional<foo> f = foo{};
     auto x = f.and_then(overloaded{});
+    (void)x;
   }
-};
+}
