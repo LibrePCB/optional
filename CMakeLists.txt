@@ -19,6 +19,7 @@ if (NOT DEFINED CMAKE_CXX_STANDARD)
 endif()
 
 option(OPTIONAL_BUILD_PACKAGE "Build packages" ON)
+option(OPTIONAL_WERROR "Turn compiler warnings into errors" OFF)
 
 cmake_dependent_option(OPTIONAL_BUILD_TESTS
   "Enable tl::optional tests" ON
@@ -67,6 +68,14 @@ install(FILES
   DESTINATION "${CMAKE_INSTALL_DATADIR}/cmake/${PROJECT_NAME}")
 
 install(DIRECTORY "include/" TYPE INCLUDE)
+
+if(OPTIONAL_WERROR)
+  if(MSVC)
+    target_compile_options(optional INTERFACE /W3 /WX)
+  else()
+    target_compile_options(optional INTERFACE -Wall -Wextra -pedantic -Werror)
+  endif()
+endif()
 
 if (OPTIONAL_BUILD_TESTS)
   set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
